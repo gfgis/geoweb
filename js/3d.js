@@ -23,14 +23,14 @@ function add3D() {
         }
     });
 
-} 
+}
 function add3DICGC() {
 
     map.addSource('icgc-dem', {
         'type': 'raster-dem',
         "tiles": [
-        "https://tilemaps.icgc.cat/tileserver/tileserver.php/terreny_icgc_2m_rgb/{z}/{x}/{y}.png"
-      ],
+            "https://tilemaps.icgc.cat/tileserver/tileserver.php/terreny_icgc_2m_rgb/{z}/{x}/{y}.png"
+        ],
         'tileSize': 512,
         'maxzoom': 14
     });
@@ -51,4 +51,20 @@ function add3DICGC() {
         }
     });
 
-} 
+}
+
+
+function ver3D(valor) {
+
+    if (valor) {
+        map.setTerrain({
+            'source': 'mapbox-dem',
+            'exaggeration': 1.5
+        });
+
+    } else {
+        map.setTerrain(null);
+
+
+    }
+}

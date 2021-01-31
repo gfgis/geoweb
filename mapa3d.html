@@ -1,20 +1,21 @@
 <html>
-    <head>
+
+<head>
     <meta charset='utf-8' />
     <title>Mapa 3D</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
-    <link rel='stylesheet' href='css/estilosbase.css'/>
-    
+    <link rel='stylesheet' href='css/estilosbase.css' />
+
     <script src='js/3d.js'></script>
     <script>
-      
+
         var map;
         function init() {
             mapboxgl.accessToken =
                 'pk.eyJ1IjoiZ2l1bHMwOTE3IiwiYSI6ImNranlqM2RpYzBzMTcybm53NDcyMHhleWwifQ.qqOs_Y1d36x-WQYI_sww5g';
-             map = new mapboxgl.Map({
+            map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/satellite-streets-v10',
                 center: [2.16859, 41.3954],
@@ -28,16 +29,21 @@
             map.addControl(new mapboxgl.NavigationControl());
 
             map.on('load', function () {
-                add3DICGC();
-            }); 
+                add3D();
+                //add3DICGC();
+            });
 
         } 
     </script>
-    </head>
+</head>
 
-    <body onload="init()">
+<body onload="init()">
+    <div class="panelTitulo">Mapa 3D</div>
+    <div class="panelTopIzquierdo">
+        <input id="textos" onChange="ver3D(this.checked)" type="checkbox" checked> ver 3D
+    </div>
 
-        <div id="map"></div>
-    </body>
+    <div id="map"></div>
+</body>
 
-    </html>
+</html>

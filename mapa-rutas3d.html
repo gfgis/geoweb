@@ -1,5 +1,6 @@
 <html>
-    <head>
+
+<head>
     <meta charset='utf-8' />
     <title>Mapa rutas 3D</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
@@ -8,17 +9,18 @@
     <link href='css/estilosbase.css' rel='stylesheet' />
 
     <script src='js/3d.js'></script>
+    <script src='js/rutas.js'></script>
     <script>
-        
+
         var map;
         function init() {
             mapboxgl.accessToken =
-            'pk.eyJ1IjoiZ2l1bHMwOTE3IiwiYSI6ImNranlqM2RpYzBzMTcybm53NDcyMHhleWwifQ.qqOs_Y1d36x-WQYI_sww5g';
-             map = new mapboxgl.Map({
+                'pk.eyJ1IjoiZ2l1bHMwOTE3IiwiYSI6ImNranlqM2RpYzBzMTcybm53NDcyMHhleWwifQ.qqOs_Y1d36x-WQYI_sww5g';
+            map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/satellite-streets-v10',
                 center: [1.77878, 41.60044],
-                zoom: 14,,
+                zoom: 14,
                 attributionControl: false,
                 pitch: 45,
                 hash: true
@@ -28,17 +30,24 @@
             map.addControl(new mapboxgl.NavigationControl());
 
             map.on('load', function () {
-             add3D();
+                add3D();
+                addRutas();
 
-            }); //fin onload         
-
-        } // final init
+            });
+        } 
     </script>
-    </head>
+</head>
 
-    <body onload="init()">
+<body onload="init()">
+    <div class="panelTopIzquierda">
+        <select onChange="zoomToRutas(this.value)">
+            <option selected value="14/41.60044/1.77878">Ruta 1</option>
+            <option value="12.96/41.76589/2.30274">Ruta 2</option>
+            <option value="13.04/42.31892/3.26054">Ruta 3</option>
+        </select>
+    </div>
 
-        <div id="map"></div>
-    </body>
+    <div id="map"></div>
+</body>
 
-    </html>
+</html>

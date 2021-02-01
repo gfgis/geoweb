@@ -39,12 +39,18 @@
 </head>
 
 <body onload="init()">
-    <div class="panelTopIzquierda">
+    <div class="panelTitulo">Mapa 3D</div>
+    <div class="panelTopIzquierdo">
+
+        <input id="textos" onChange="ver3D(this.checked)" type="checkbox" checked>Ver 3D
+
+        <br>
         <select onChange="zoomToRutas(this.value)">
             <option selected value="14/41.60044/1.77878">Ruta 1</option>
             <option value="12.96/41.76589/2.30274">Ruta 2</option>
             <option value="13.04/42.31892/3.26054">Ruta 3</option>
         </select>
+
     </div>
 
     <div id="map"></div>

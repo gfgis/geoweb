@@ -57,11 +57,11 @@ function terremotosGeonamesToGeoJSON(respuestaGeonames) {
             }
         );
 
-    } //fin loop
+    }
 
     return geoJSON;
 
-} //fin funcion
+}
 function generarPeticionTerremotos() {
 
     var peticion = 'https://secure.geonames.org/earthquakesJSON?' +
@@ -133,4 +133,4 @@ function generarPeticionTerremotos() {
 
     });
 
-} // fin funcion
+} 

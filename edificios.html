@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Edificios</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+        type="text/css" />
+    <link href='css/estiloedificios.css' rel='stylesheet' />
+
+    <script src='js/edificios.js'></script>
+
+    <script>
+
+        var map;
+        function init() {
+            mapboxgl.accessToken =
+                'pk.eyJ1IjoiZ2l1bHMwOTE3IiwiYSI6ImNranlqM2RpYzBzMTcybm53NDcyMHhleWwifQ.qqOs_Y1d36x-WQYI_sww5g';
+            map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/giuls0917/ckjyjuv7y1ux717s4qbovpev9',
+                center: [2.16859, 41.3954],
+                zoom: 15,
+                attributionControl: false,
+                pitch: 45,
+                hash: true
+            });
+
+            map.addControl(new mapboxgl.AttributionControl({ compact: true }));
+            map.addControl(new mapboxgl.NavigationControl());
+            map.addControl(
+                new MapboxGeocoder({
+                    accessToken: mapboxgl.accessToken,
+                    mapboxgl: mapboxgl
+                }));
+
+
+            map.on('load', function () {
+
+                addEdificiosCapa();
+                addPopupToMapEdificios("edificios");
+
+
+            }); //fin onload
+
+        } // final init
+    </script>
+</head>
+
+<body onload="init()">
+    <div class="panelTopIzquierdo">
+        <div>
+            <label id="altura">Más de 0 pisos</label>
+            <input onChange="filtrarEdificios(this.value)" id="slider" type="range" min="1" max="50" step="1"
+                value="0" />
+
+        </div>
+        <hr>
+        <div class="check">
+            <div class="check-item"><input id="textos" onChange="verTextos(this.checked)" type="checkbox" checked></div>
+            <div class="check-text">
+                <p>Ver toponimos</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="map"></div>
+
+</body>
+
+</html>

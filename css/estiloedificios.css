@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff
+}
+.panelTopIzquierdo label{
+    font-size:0.75em;
+}
+.panelTopIzquierdo input{
+    cursor:pointer;
+    width: 95%;
+}
+.panelTopIzquierdo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    width: 200px;
+    z-index: 1000;
+    background-color: rgba(255,255,255,0.5);
+    padding: 10px;
+    font-size:20px;
+    color: #333333;
+    border-radius: 5px;
+}
+.check{
+display: flex;
+flex-direction: row;
+justify-content: start;
+align-items: baseline;
+}
+.check-item{
+    width: 2em;
+}
+.check-text{
+    padding-left: 0.5em;
+    font-size:0.75em;
+    color: darkred;
+}
+
+#altura{
+    color: darkred;
+}
+
+
+
+.panelTopIzquierdo input{
+    cursor:pointer;
+    width: 95%;
+}
